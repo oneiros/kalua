@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag "ui-lightness/jquery-ui-1.8.4.custom" %>
+
+<h1>Calendar</h1>
+
+<div id='calendar'></div>
+
+<div id='new_event_div' title='Add event' style='display: none;'>
+  <%= form_for Event.new, :remote => true do |f| %>
+    <%= f.hidden_field 'from' %>
+    <%= f.hidden_field 'to' %>
+    <p id='new_event_from'><p>
+    <p>Title: <%= f.text_field 'title' %></p>
+    <p><%= f.submit 'Create' %></p>
+  <% end %>
+</div>
+
+<%= javascript_include_tag 'fullcalendar.js' %>
+<%= javascript_include_tag 'show_calendar.js' %>
+

@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  from: 2010-09-01 12:55:59
+  to: 2010-09-01 12:55:59
+  title: MyString
+  place: MyString
+  description: MyText
+  calendar: 
+
+two:
+  from: 2010-09-01 12:55:59
+  to: 2010-09-01 12:55:59
+  title: MyString
+  place: MyString
+  description: MyText
+  calendar: 
