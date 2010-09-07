@@ -5,9 +5,10 @@
 <div id='calendar'></div>
 
 <div id='new_event_div' title='Add event' style='display: none;'>
-  <%= form_for Event.new, :remote => true do |f| %>
+  <%= form_for Event.new(:all_day => false), :remote => true do |f| %>
     <%= f.hidden_field 'from' %>
     <%= f.hidden_field 'to' %>
+    <%= f.hidden_field 'all_day' %>
     <p id='new_event_from'><p>
     <p>Title: <%= f.text_field 'title' %></p>
     <p><%= f.submit 'Create' %></p>

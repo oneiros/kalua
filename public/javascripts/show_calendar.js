@@ -8,8 +8,6 @@ $(document).ready(function() {
     $('#new_event').bind("ajax:success", eventCreated);
   });
 
-
-
   $('#new_event_div').dialog({autoOpen: false}); 
 
   $('#calendar').fullCalendar({
@@ -33,11 +31,13 @@ $(document).ready(function() {
 function eventCreated(data, status, xhr) {
   $('#new_event_div').dialog('close');
   $('#new_event')[0].reset();
+  $('#event_all_day').val("0");
   $('#calendar').fullCalendar('refetchEvents');
 }
 
 function dayClicked(dayDate, allDay, jsEvent, view) {
   $('#event_from').val($.fullCalendar.formatDate(dayDate, "u"));
+  if (allDay) $('#event_all_day').val("1");
   $('#new_event_from').text($.fullCalendar.formatDate(dayDate, "u"))
   $('#new_event_div').dialog('option', 'position', [jsEvent.pageX, jsEvent.pageY]);
   $('#new_event_div').dialog('open');
