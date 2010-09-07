@@ -1,4 +1,4 @@
-<h1>Edit Event</h1>
+<h1>Edit Event</h1> 
 
 <%= form_for @event do |f| %>
 
@@ -41,3 +41,5 @@
   <%= f.submit "Save Changes" %>
 </p>
 <% end %>
+
+<%= button_to "Delete Event", @event, :method => :delete, :confirm => "Are you sure?" %>
