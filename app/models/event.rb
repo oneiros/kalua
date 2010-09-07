@@ -14,7 +14,8 @@ class Event < ActiveRecord::Base
         :start => event.from,
         :end => event.to,
         :description => event.description,
-        :editable => true
+        :editable => true,
+        :url => "/events/#{event.id}/edit"
       }
     end
     result.to_json

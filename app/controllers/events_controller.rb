@@ -68,7 +68,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.update_attributes(params[:event])
         flash[:notice] = 'Event was successfully updated.'
-        format.html { redirect_to(@event) }
+        format.html { redirect_to(calendars_path) }
         format.js { render :text => "" }
         format.xml  { head :ok }
       else

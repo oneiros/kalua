@@ -1,0 +1,43 @@
+<h1>Edit Event</h1>
+
+<%= form_for @event do |f| %>
+
+<p>
+  <%= f.label :title %> <br />
+  <%= f.text_field :title %>
+</p>
+
+<p>
+  <%= f.label :place %> <br />
+  <%= f.text_field :place %>
+</p>
+
+<p>
+  <%= f.label :from %> <br />
+  <%= f.text_field :from %>
+</p>
+
+<p>
+  <%= f.label :to %> <br />
+  <%= f.text_field :to %>
+</p>
+
+<p>
+  <%= f.label :all_day %> <br />
+  <%= f.check_box :all_day %>
+</p>
+
+<p>
+  <%= f.label :calendar_id, "Calendar" %> <br />
+  <%= f.collection_select :calendar_id, current_user.calendars, :id, :name %>
+</p>
+
+<p>
+  <%= f.label :description %> <br />
+  <%= f.text_area :description %>
+</p>
+
+<p>
+  <%= f.submit "Save Changes" %>
+</p>
+<% end %>
