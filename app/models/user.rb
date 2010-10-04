@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :calendars
   has_many :events, :through => :calendars
 
-  before_create :create_default_calendar
+  after_create :create_default_calendar
 
   private
 
