@@ -52,6 +52,7 @@ GEM
       daemons (>= 1.0.3)
       fastthread (>= 1.0.1)
       gem_plugin (>= 0.2.3)
+    mysql (2.8.1)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.12)
@@ -86,5 +87,6 @@ PLATFORMS
 DEPENDENCIES
   devise (~> 1.1)
   mongrel
+  mysql
   rails (= 3.0.0)
   sqlite3-ruby
