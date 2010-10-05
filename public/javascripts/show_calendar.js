@@ -12,6 +12,7 @@ $(document).ready(function() {
 
 });
 
+var format_string = "yyyy-MM-dd'T'HH:mm:ss";
 
 function eventCreated(data, status, xhr) {
   $('#new_event_div').dialog('close');
@@ -21,7 +22,7 @@ function eventCreated(data, status, xhr) {
 }
 
 function dayClicked(dayDate, allDay, jsEvent, view) {
-  $('#event_from').val($.fullCalendar.formatDate(dayDate, "u"));
+  $('#event_from').val($.fullCalendar.formatDate(dayDate, format_string));
   if (allDay) $('#event_all_day').val("1");
   $('#new_event_from').text($.fullCalendar.formatDate(dayDate, "u"))
   $('#new_event_div').dialog('option', 'position', [jsEvent.pageX, jsEvent.pageY]);
@@ -37,7 +38,6 @@ function eventResized(event, dayDelta, minuteDelta, revertFunc, jsEvent, ui, vie
 }
 
 function updateEvent(event) {
-  format_string = "yyyy-MM-dd'T'HH:mm:ss";
   jQuery.post("/events/"+ event.id, {
     _method: "put",
     event: {
