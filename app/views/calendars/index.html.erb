@@ -18,3 +18,40 @@
 <%= javascript_include_tag 'fullcalendar.js' %>
 <%= javascript_include_tag 'show_calendar.js' %>
 
+<%= javascript_tag do %>
+
+$(document).ready(function() {
+
+  $('#calendar').fullCalendar({
+    events: "/events.json",
+    header: {
+      left: 'title',
+      center: '',
+      right: 'today agendaDay,agendaWeek,month prev,next'
+    },
+    defaultView: 'agendaWeek',
+    height: $(window).height(),
+    firstHour: 8,
+    dayClick: dayClicked, 
+    eventDrop: eventDropped,
+    eventResize: eventResized,
+    <% if current_user.preference.day_before_month? -%>
+    columnFormat: {
+      month: 'ddd', 
+      week: 'ddd d/M', 
+      day: 'dddd d/M'
+    },
+    <% end -%>
+    <% if current_user.preference.twenty_four_hour_format? -%>
+    timeFormat: {
+      agenda: 'H:mm{ - H:mm}',
+      '': 'H:mm'
+    },
+    axisFormat: 'H:mm',
+    <% end -%>
+    firstDay: <%= current_user.preference.week_start %>
+  })
+
+});
+
+<% end %>

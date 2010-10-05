@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  24h_time: false
+  day_before_month: false
+  week_start: 1
+  time_zone: MyString
+
+two:
+  user_id: 1
+  24h_time: false
+  day_before_month: false
+  week_start: 1
+  time_zone: MyString

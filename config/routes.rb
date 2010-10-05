@@ -1,9 +1,13 @@
 Kalua::Application.routes.draw do
+
   devise_for :users
 
   resources :events
 
   resources :calendars
+
+  get 'users/preferences' => 'preferences#edit', :as => 'preferences'
+  put 'users/preferences' => 'preferences#update', :as => 'preferences'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

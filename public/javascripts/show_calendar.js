@@ -10,21 +10,6 @@ $(document).ready(function() {
 
   $('#new_event_div').dialog({autoOpen: false}); 
 
-  $('#calendar').fullCalendar({
-    events: "/events.json",
-    header: {
-      left: 'title',
-      center: '',
-      right: 'today agendaDay,agendaWeek,month prev,next'
-    },
-    defaultView: 'agendaWeek',
-    height: $(window).height(),
-    firstHour: 8,
-    dayClick: dayClicked, 
-    eventDrop: eventDropped,
-    eventResize: eventResized
-  })
-
 });
 
 
@@ -52,11 +37,12 @@ function eventResized(event, dayDelta, minuteDelta, revertFunc, jsEvent, ui, vie
 }
 
 function updateEvent(event) {
+  format_string = "yyyy-MM-dd'T'HH:mm:ss";
   jQuery.post("/events/"+ event.id, {
     _method: "put",
     event: {
-      from: $.fullCalendar.formatDate(event.start, "u"),
-      to: $.fullCalendar.formatDate(event.end, "u"),
+      from: $.fullCalendar.formatDate(event.start, format_string),
+      to: $.fullCalendar.formatDate(event.end, format_string),
       all_day: event.allDay
     }
   });

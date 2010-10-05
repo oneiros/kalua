@@ -9,15 +9,17 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   belongs_to :calendar # default calendar for this user
+  has_one :preference
   has_many :calendars
   has_many :events, :through => :calendars
 
-  after_create :create_default_calendar
+  after_create :create_default_calendar_and_preferences
 
   private
 
   def create_default_calendar
     self.calendar = Calendar.create(:name => "default", :user_id => self.id)
+    self.preference = Preference.create(:user_id => self.id)
   end
 
 end
