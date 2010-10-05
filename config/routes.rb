@@ -9,6 +9,8 @@ Kalua::Application.routes.draw do
   get 'users/preferences' => 'preferences#edit', :as => 'preferences'
   put 'users/preferences' => 'preferences#update', :as => 'preferences'
 
+  match '/users/calendar' => 'calendars#index', :as => 'user_root'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
