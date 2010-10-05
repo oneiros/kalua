@@ -26,3 +26,26 @@ body {
 #new_event_div input[type=text] {
   width: 200px;
 }
+
+div#user_navigation {
+  width: 100%;
+  height: 18px;
+  border-bottom: 1px solid #3366CC;
+  margin-bottom: 22px;
+}
+
+#user_navigation ul {
+  list-style-type: none;
+  display: block;
+}
+
+#user_navigation ul li {
+  font-size: 14px;
+  float: right;
+  margin-right: 5px;
+}
+
+#user_navigation ul li a {
+  text-decoration: none;
+}
+

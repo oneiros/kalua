@@ -1,5 +1,3 @@
-<h1>Calendar</h1>
-
 <div id='calendar'></div>
 
 <div id='new_event_div' title='Add event' style='display: none;'>
@@ -28,7 +26,7 @@ $(document).ready(function() {
       right: 'today agendaDay,agendaWeek,month prev,next'
     },
     defaultView: 'agendaWeek',
-    height: $(window).height(),
+    height: $(window).height() - 41,
     firstHour: 8,
     dayClick: dayClicked, 
     eventDrop: eventDropped,
