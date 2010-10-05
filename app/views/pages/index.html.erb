@@ -1,9 +1,25 @@
-<h1>Kalua</h1>
+<h1>Kalendr.net</h1>
 
-<p>Welcome to a fresh install of Kalua. You will probably want
-to customize this page somewhat.</p>
+<p>
+  Welcome to Kalendr. Currently, this is the testbed for
+  the Kalua open source project (see 
+  <%= link_to "http://github.com/oneiros/kalua", "http://github.com/oneiros/kalua" %>
+  ).
+</p>
 
-<p>You can however start right away, so either <br />
-  <%= link_to "Register", new_user_registration_path %> a new user, or <br />
+<p>
+  You may create a free account and manage your calendar here.
+  But please note that Kalua (and thus this site) is a work
+  in progress that is neither very stable nor reliable nor
+  feature rich. It does not even have recurring events.
+  It may lose all your data. Actually, it probably will.
+  Use at own risk.
+</p>
+
+<p>
+  So, after you read through the disclaimer above, feel free 
+  to <br />
+  <%= link_to "Register", new_user_registration_path %> 
+  a new user, or <br />
   <%= link_to "Login", new_user_session_path %>
 </p>
