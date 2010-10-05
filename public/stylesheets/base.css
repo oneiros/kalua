@@ -22,3 +22,7 @@ body {
   width: 960px;
   margin: 0 auto;
 }
+
+#new_event_div input[type=text] {
+  width: 200px;
+}
