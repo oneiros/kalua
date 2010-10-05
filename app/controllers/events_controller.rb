@@ -5,11 +5,15 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
   def index
-    @events = Event.all
+    if params[:start] and params[:end]
+      @events = current_user.events.between(Time.zone.at(params[:start].to_i), Time.zone.at(params[:end].to_i))
+    else
+      @events = current_user.events
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => Event.user_events_json(current_user) }
+      format.json { render :json => Event.json(@events) }
       format.xml  { render :xml => @events }
     end
   end

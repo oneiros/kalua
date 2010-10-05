@@ -4,9 +4,13 @@ class Event < ActiveRecord::Base
 
   before_save :set_to_time
 
-  def self.user_events_json(user)
+  scope :between, lambda {|from, to|
+    {:conditions => ["events.`from` < ? AND events.`to` > ?", to, from]}
+  }
+
+  def self.json(events)
     result = []
-    user.events.each do |event|
+    events.each do |event|
       result << {
         :id => event.id,
         :title => event.title,
