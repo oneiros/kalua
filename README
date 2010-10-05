@@ -11,5 +11,15 @@ on the client side.
 Everything that works is due to Adam and everything that
 does not work is totally my fault.
 
+I am serious. Kalua is in very early stages. But I believe
+in "Release Early, Release Often", so here it is.
+
+At this point it does not do much, but if you want to give
+it a try, there is a reference installation at 
+http://kalendr.net.
+
+Also, feel free to fork and submit patches or simply
+report some bugs and feature requests.
+
 Kalua is licensed under an MIT license (because, frankly,
 AGPLv3 is just too complicated to use properly).
