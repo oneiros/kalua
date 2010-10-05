@@ -3,22 +3,22 @@
 <%= form_for @preference, :url => preferences_path, :method => :put do |f| %>
 
   <p>
-    <%= f.label :time_zone %>
+    <%= f.label :time_zone %> <br />
     <%= f.time_zone_select :time_zone %>
   </p>
 
   <p>
-    <%= f.label :twenty_four_hour_format, "Time format" %>
+    <%= f.label :twenty_four_hour_format, "Time format" %> <br />
     <%= f.select :twenty_four_hour_format, {"6pm" => false, "18:00" => true} %>
   </p>
 
   <p>
-    <%= f.label :day_before_month, "Date format" %>
+    <%= f.label :day_before_month, "Date format" %> <br />
     <%= f.select :day_before_month, {"24/12" => true, "12/24" => false} %>
   </p>
 
   <p>
-    <%= f.label :week_start, "First day of week" %>
+    <%= f.label :week_start, "First day of week" %> <br />
     <%= f.select :week_start, {"Sunday" => 0, "Monday" => 1} %>
   </p>
 

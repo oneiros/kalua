@@ -18,6 +18,14 @@ body {
   font-family: Arial, Helvetica, sans-serif, sans;
 }
 
+h1 {
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
 #container {
   width: 960px;
   margin: 0 auto;
