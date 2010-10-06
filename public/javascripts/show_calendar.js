@@ -10,6 +10,14 @@ $(document).ready(function() {
 
   $('#new_event_div').dialog({autoOpen: false}); 
 
+  $('li.my_calendars').click(function() {
+    $('#calendars').toggle();
+    return false;
+  });
+
+  $('#calendars').css('left', $('li.my_calendars').offset().left);
+  $('#calendars').css('top', $('li.my_calendars').offset().top+20);
+
 });
 
 var format_string = "yyyy-MM-dd'T'HH:mm:ss";

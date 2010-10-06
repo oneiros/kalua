@@ -11,6 +11,24 @@
   <% end %>
 </div>
 
+<div id="calendars" style="display: none;">
+  <ul>
+  <% current_user.calendars.each do |calendar| %>
+    <li>
+      <%= link_to calendar.name, edit_calendar_path(calendar) %>
+    </li>
+  <% end %>
+  </ul>
+  <hr />
+  <%= link_to "Create new calendar", new_calendar_path %>
+</div>
+
+<% content_for :current_actions do %>
+<li class="my_calendars">
+  <%= link_to "My Calendars" %>
+</li>
+<% end %>
+
 <%= javascript_include_tag 'fullcalendar.js' %>
 <%= javascript_include_tag 'show_calendar.js' %>
 

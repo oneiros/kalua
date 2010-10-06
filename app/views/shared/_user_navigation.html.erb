@@ -1,5 +1,8 @@
 <div id="user_navigation">
-  <ul>
+  <ul class="left">
+    <%= content_for :current_actions %>
+  </ul>
+  <ul class="right">
     <li><%= link_to "Logout", destroy_user_session_path %></li>
     <li><%= link_to "Settings", preferences_path %></li>
     <li><%= link_to "Calendar", user_root_path %></li>

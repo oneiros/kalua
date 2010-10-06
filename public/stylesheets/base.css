@@ -26,6 +26,14 @@ p {
   margin-bottom: 10px;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
 #container {
   width: 960px;
   margin: 0 auto;
@@ -49,11 +57,24 @@ div#user_navigation {
 
 #user_navigation ul li {
   font-size: 14px;
-  float: right;
   margin-right: 5px;
+}
+
+#user_navigation ul.left li {
+  float: left;
+}
+
+#user_navigation ul.right li {
+  float: right;
 }
 
 #user_navigation ul li a {
   text-decoration: none;
 }
 
+div#calendars {
+  position: absolute;
+  z-index: 100;
+  background: #ffffff;
+  border: 1px solid #3366cc;
+}
