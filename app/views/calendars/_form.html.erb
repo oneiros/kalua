@@ -6,7 +6,23 @@
   </p>
 
   <p>
+    <%= f.label :color %> <br />
+    <%= f.text_field :color %>
+  </p>
+
+  <p>
     <%= f.submit %>
   </p>
+
+<% end %>
+
+<%= stylesheet_link_tag "colorPicker" %>
+<%= javascript_include_tag "jquery.colorPicker" %>
+
+<%= javascript_tag do %>
+
+  jQuery(document).ready(function($) {
+    $('#calendar_color').colorPicker();
+  });
 
 <% end %>

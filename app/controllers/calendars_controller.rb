@@ -32,4 +32,8 @@ class CalendarsController < ApplicationController
     end
   end
 
+  def styles
+    @calendars = current_user.calendars
+  end
+
 end

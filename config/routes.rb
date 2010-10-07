@@ -4,7 +4,11 @@ Kalua::Application.routes.draw do
 
   resources :events
 
-  resources :calendars
+  resources :calendars do
+    collection do
+      get 'styles'
+    end
+  end
 
   get 'users/preferences' => 'preferences#edit', :as => 'preferences'
   put 'users/preferences' => 'preferences#update', :as => 'preferences'

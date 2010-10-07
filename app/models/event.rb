@@ -19,6 +19,7 @@ class Event < ActiveRecord::Base
         :end => event.to,
         :description => event.description,
         :editable => true,
+        :className => event.calendar.css_class_name,
         :url => "/events/#{event.id}/edit"
       }
     end
