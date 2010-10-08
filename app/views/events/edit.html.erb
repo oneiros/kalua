@@ -37,6 +37,20 @@
   <%= f.text_area :description %>
 </p>
 
+<%= field_set_tag "Recurrence" do %>
+
+<p>
+  <%= f.label :recurrence_frequency %> <br />
+  <%= f.select :recurrence_frequency, Event::RECURRENCE_FREQUENCIES, :include_blank => true %>
+</p>
+
+<p>
+  <%= f.label :recurrence_until %> <br />
+  <%= f.date_select :recurrence_until, :include_blank => true %>
+</p>
+
+<% end %>
+
 <p>
   <%= f.submit "Save Changes" %>
 </p>
