@@ -2,9 +2,13 @@ class Event < ActiveRecord::Base
 
   RECURRENCE_FREQUENCIES = ["daily", "weekly", "monthly", "yearly"]
 
+  attr_reader :recurring
+
   belongs_to :calendar
 
+  after_initialize :set_recurring
   before_save :set_to_time
+  before_validation :cleanup_recurrence
 
   scope :candidates, lambda {|from, to|
     {:conditions => ["(events.recurrence_frequency IS NULL AND events.`from` < ? AND events.`to` > ?) OR (events.recurrence_frequency IS NOT NULL AND (events.recurrence_until IS NULL or events.recurrence_until > ?))", to, from, from]}
@@ -56,10 +60,29 @@ class Event < ActiveRecord::Base
     }
   end
 
+  def recurring=(new_value)
+    if new_value == true or new_value.to_i == 1
+      @recurring = true
+    else
+      @recurring = false
+    end
+  end
+
   private
 
   def set_to_time
     self.to = self.from.since(1.hour) unless self.to
+  end
+
+  def set_recurring
+    self.recurring = true if recurrence_frequency
+  end
+
+  def cleanup_recurrence
+    unless self.recurring
+      self.recurrence_frequency = nil
+      self.recurrence_until = nil
+    end
   end
 
 end

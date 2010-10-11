@@ -2,6 +2,19 @@
 
 <%= form_for @event do |f| %>
 
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
 <p>
   <%= f.label :title %> <br />
   <%= f.text_field :title %>
@@ -37,8 +50,12 @@
   <%= f.text_area :description %>
 </p>
 
-<%= field_set_tag "Recurrence" do %>
+<p>
+  <%= f.label :recurring, "Recurring?" %>
+  <%= f.check_box :recurring %>
+</p>
 
+<div id="recurrence">
 <p>
   <%= f.label :recurrence_frequency %> <br />
   <%= f.select :recurrence_frequency, Event::RECURRENCE_FREQUENCIES, :include_blank => true %>
@@ -48,8 +65,7 @@
   <%= f.label :recurrence_until %> <br />
   <%= f.date_select :recurrence_until, :include_blank => true %>
 </p>
-
-<% end %>
+</div>
 
 <p>
   <%= f.submit "Save Changes" %>
@@ -57,3 +73,15 @@
 <% end %>
 
 <%= button_to "Delete Event", @event, :method => :delete, :confirm => "Are you sure?" %>
+
+<%= javascript_tag do %>
+
+  $(document).ready(function() {
+    if (!$("#event_recurring")[0].checked) $("#recurrence").hide();
+
+    $("#event_recurring").change(function() {
+      $("#recurrence").toggle();
+    });
+  });
+
+<% end %>
