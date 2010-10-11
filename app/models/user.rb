@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   private
 
-  def create_default_calendar
+  def create_default_calendar_and_preferences
     self.calendar = Calendar.create(:name => "default", :user_id => self.id)
     self.preference = Preference.create(:user_id => self.id)
   end
