@@ -35,6 +35,10 @@ end
 
 group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'cucumber-rails'
+  gem 'capybara'
 end
 
 group :production do
