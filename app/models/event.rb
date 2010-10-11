@@ -18,7 +18,7 @@ class Event < ActiveRecord::Base
 
   def self.all_from_user_between(user, from, to)
     result = Array.new
-    candidates = self.candidates(from, to)
+    candidates = user.events.candidates(from, to)
     candidates.each do |event|
       if event.recurrence_frequency
         while event.from < to
