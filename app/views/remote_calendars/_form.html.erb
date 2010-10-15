@@ -1,8 +1,13 @@
-<%= form_for @calendar do |f| %>
+<%= form_for @remote_calendar do |f| %>
 
   <p>
     <%= f.label :name %> <br />
     <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :url %> <br />
+    <%= f.text_field :url %>
   </p>
 
   <p>
@@ -16,4 +21,4 @@
 
 <% end %>
 
-<%= color_picker_for :calendar_color %>
+<%= color_picker_for :remote_calendar_color %>

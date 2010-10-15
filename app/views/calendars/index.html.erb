@@ -19,8 +19,19 @@
     </li>
   <% end %>
   </ul>
+  <% unless current_user.remote_calendars.empty? %>
   <hr />
-  <%= link_to "Create new calendar", new_calendar_path %>
+  <ul>
+  <% current_user.remote_calendars.each do |remote_calendar| %>
+    <li>
+      <%= link_to remote_calendar.name, edit_remote_calendar_path(remote_calendar) %>
+    </li>
+  <% end %>
+  </ul>
+  <% end %>
+  <hr />
+  <%= link_to "Create new calendar", new_calendar_path %> <br />
+  <%= link_to "Add remote calendar", new_remote_calendar_path %>
 </div>
 
 <% content_for :current_actions do %>

@@ -1,0 +1,10 @@
+<%= stylesheet_link_tag "colorPicker" %>
+<%= javascript_include_tag "jquery.colorPicker" %>
+
+<%= javascript_tag do %>
+
+  jQuery(document).ready(function($) {
+    $('#<%= input_element %>').colorPicker();
+  });
+
+<% end %>
