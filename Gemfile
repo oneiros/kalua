@@ -7,6 +7,8 @@ gem 'rails', '3.0.1'
 
 gem 'devise', '~>1.1'
 
+gem 'ri_cal'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
