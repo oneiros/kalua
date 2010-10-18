@@ -28,4 +28,10 @@ class RemoteCalendarsController < ApplicationController
     end
   end
 
+  def destroy
+    @remote_calendar = current_user.remote_calendars.find(params[:id])
+    @remote_calendar.destroy
+    redirect_to calendars_path
+  end
+
 end

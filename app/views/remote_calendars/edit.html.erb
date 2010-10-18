@@ -1,3 +1,7 @@
 <h1>Edit remote calendar</h1>
 
 <%= render 'form' %>
+
+<p>
+  <%= button_to "Delete remote calendar", @remote_calendar, :method => :delete, :confirm => "Are your sure?" %>
+</p>

@@ -4,6 +4,8 @@ class RemoteCalendar < ActiveRecord::Base
 
   belongs_to :user
 
+  serialize :ical_data
+
   validates_presence_of :name
   validates_presence_of :url
   validates_presence_of :color
@@ -15,8 +17,8 @@ class RemoteCalendar < ActiveRecord::Base
   end
 
   def events(from, to)
-    calendars = RiCal.parse(open(self.url))
-    events = calendars.collect(&:events).flatten
+    update_ical_data if !self.ical_data or self.ical_data_updated < Time.now.ago(15.minutes)
+    events = self.ical_data.collect(&:events).flatten
     result = Array.new
     events.each do |event|
       event.occurrences(:overlapping => [from, to]).each do |e|
@@ -38,7 +40,9 @@ class RemoteCalendar < ActiveRecord::Base
   end
 
   def update_ical_data
-    RiCal.parse(open(self.url))
+    self.ical_data = RiCal.parse(open(self.url))
+    self.ical_data_updated = Time.now
+    save(false)
   end
 
   private
