@@ -57,7 +57,8 @@ $(document).ready(function() {
     defaultView: 'agendaWeek',
     height: $(window).height() - 41,
     firstHour: 8,
-    dayClick: dayClicked, 
+    dayClick: dayClicked,
+    loading: loadingIndicator,
     eventDrop: eventDropped,
     eventResize: eventResized,
     <% if current_user.preference.day_before_month? -%>

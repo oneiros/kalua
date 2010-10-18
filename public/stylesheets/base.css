@@ -78,3 +78,8 @@ div#calendars {
   background: #ffffff;
   border: 1px solid #3366cc;
 }
+
+.loading_indicator {
+  font-weight: bold;
+  color: #bbbbbb;
+}

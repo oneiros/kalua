@@ -55,3 +55,12 @@ function updateEvent(event) {
     }
   });
 }
+
+function loadingIndicator(isLoading, view) {
+  if (isLoading) {
+    loadingSpan = $("<span class='loading_indicator'>loading...</span>");
+    $(".fc-header-center").append(loadingSpan);
+  } else {
+    $(".loading_indicator").remove();
+  }
+}
