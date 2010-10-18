@@ -1,5 +1,17 @@
 <%= form_for @remote_calendar do |f| %>
 
+  <% if @remote_calendar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@remote_calendar.errors.count, "error") %> prohibited this remote calendar from being saved:</h2>
+
+      <ul>
+      <% @remote_calendar.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>
     <%= f.label :name %> <br />
     <%= f.text_field :name %>

@@ -4,6 +4,12 @@ class RemoteCalendar < ActiveRecord::Base
 
   belongs_to :user
 
+  validates_presence_of :name
+  validates_presence_of :url
+  validates_presence_of :color
+
+  validate :url_reachable_and_parseable
+
   def css_class_name
     "remote_calendar_#{self.id}"
   end
@@ -29,6 +35,19 @@ class RemoteCalendar < ActiveRecord::Base
       end
     end
     return result
+  end
+
+  def update_ical_data
+    RiCal.parse(open(self.url))
+  end
+
+  private
+
+  def url_reachable_and_parseable
+    url.sub!("webcal", "http") if url =~ /^webcal:\/\//
+    update_ical_data
+  rescue Exception => e
+    errors.add(:url, "is not reachable or parseable")
   end
 
 end
