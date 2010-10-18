@@ -1,0 +1,8 @@
+<% @calendars.each do |calendar| %>
+.<%= calendar.css_class_name -%>, 
+.<%= calendar.css_class_name -%> .fc-event-time, 
+.<%= calendar.css_class_name -%> a {
+  background-color: <%= calendar.color -%>;
+  border-color: <%= calendar.color -%>;
+}
+<% end %>

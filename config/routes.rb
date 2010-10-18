@@ -10,6 +10,8 @@ Kalua::Application.routes.draw do
     end
   end
 
+  resources :remote_calendars
+
   get 'users/preferences' => 'preferences#edit', :as => 'preferences'
   put 'users/preferences' => 'preferences#update', :as => 'preferences'
 

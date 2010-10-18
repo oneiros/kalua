@@ -16,13 +16,4 @@
 
 <% end %>
 
-<%= stylesheet_link_tag "colorPicker" %>
-<%= javascript_include_tag "jquery.colorPicker" %>
-
-<%= javascript_tag do %>
-
-  jQuery(document).ready(function($) {
-    $('#calendar_color').colorPicker();
-  });
-
-<% end %>
+<%= color_picker_for :calendar_color %>

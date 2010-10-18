@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   belongs_to :calendar # default calendar for this user
   has_one :preference
   has_many :calendars
+  has_many :remote_calendars
   has_many :events, :through => :calendars
 
   after_create :create_default_calendar_and_preferences

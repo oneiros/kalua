@@ -33,7 +33,7 @@ class CalendarsController < ApplicationController
   end
 
   def styles
-    @calendars = current_user.calendars
+    @calendars = current_user.calendars + current_user.remote_calendars
   end
 
 end

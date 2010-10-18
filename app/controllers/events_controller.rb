@@ -6,7 +6,12 @@ class EventsController < ApplicationController
   # GET /events.xml
   def index
     if params[:start] and params[:end]
-      @events = Event.all_from_user_between(current_user, Time.zone.at(params[:start].to_i), Time.zone.at(params[:end].to_i))
+      from = Time.zone.at(params[:start].to_i)
+      to = Time.zone.at(params[:end].to_i) 
+      @events = Event.all_from_user_between(current_user, from, to)
+      current_user.remote_calendars.each do |remote_calendar|
+        @events += remote_calendar.events(from, to)
+      end
     else
       @events = current_user.events
     end
