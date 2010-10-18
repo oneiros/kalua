@@ -3,7 +3,9 @@
 Kalua is a free (as in freedom), light-weight, web based
 calendar.
 
-It is currently being developed using Ruby on Rails
+== Current Status ==
+
+Kalua is currently being developed using Ruby on Rails
 (http://www.rubyonrails.org) on the server side and
 Adam Shaw's FullCalendar (http://arshaw.com/fullcalendar/)
 on the client side.
@@ -11,15 +13,43 @@ on the client side.
 Everything that works is due to Adam and everything that
 does not work is totally my fault.
 
-I am serious. Kalua is in very early stages. But I believe
-in "Release Early, Release Often", so here it is.
+== Demo / Reference Platform ==
 
-At this point it does not do much, but if you want to give
-it a try, there is a reference installation at 
-http://kalendr.net.
+Kalua is the software that drives http://kalendr.net.
+You can sign up there for free and try out Kalua.
 
-Also, feel free to fork and submit patches or simply
-report some bugs and feature requests.
+Operations of kalendr.net are not yet 100% stable, but I
+already use it as my primary calendar.
 
-Kalua is licensed under an MIT license (because, frankly,
-AGPLv3 is just too complicated to use properly).
+== Installing Kalua ==
+
+Kalua is free software and can be installed anywhere.
+
+It is a fairly standard Ruby on Rails application. There
+should be a myriad of tutorials out there about how to install
+a Rails application on your type of server/OS.
+
+I recommend using Phusion Passenger (http://www.modrails.com/).
+
+With passenger, installation should look somewhat like this:
+
+1) Copy files to server.
+2) Run `bundler install` to install all the gems needed.
+3) Setup database configuration in config/database.yml.
+   (Tested with sqlite3 and MySQL)
+4) Run `rake db:migrate` to setup database.
+5) Enjoy.
+
+== Contributing ==
+
+Kalua is hosted @ github: http://github.com/oneiros/kalua
+
+Feel free to fork and submit patches or simply report some 
+bugs and feature requests.
+
+== License ==
+
+Kalua is licensed under an MIT license (see LICENSE).
+
+© 2010 David Roetzel
+
