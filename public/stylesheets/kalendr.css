@@ -1,0 +1,44 @@
+body {
+  background: #efefef;
+}
+
+#container {
+  background: #ffffff;
+  font-size: 150%;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #dddddd;
+}
+
+#user_navigation {
+  background: #87b6d9;
+}
+
+#calendar {
+  background: #ffffff;
+}
+
+#user_navigation a, #user_navigation a:visited {
+  color: #ffffff;
+  text-shadow: 1px 1px 1px #000;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#user_navigation a:hover {
+  color: #000000;
+}
+
+#calendars {
+  margin-left: 10px;
+  padding: 5px;
+  background: #87b6d9;
+  -moz-box-shadow: 3px 3px 3px #87b6d9;
+  -webkit-box-shadow: 3px 3px 3px #87b6d9;
+  box-shadow: 3px 3px 3px #87b6d9;
+}
+
+#calendars ul {
+  list-style-type: none;
+}
