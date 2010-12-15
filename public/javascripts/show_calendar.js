@@ -11,12 +11,13 @@ $(document).ready(function() {
   $('#new_event_div').dialog({autoOpen: false}); 
 
   $('li.my_calendars').click(function() {
+    $('li.my_calendars > a').toggleClass("active");
     $('#calendars').toggle();
     return false;
   });
 
   $('#calendars').css('left', $('li.my_calendars').offset().left);
-  $('#calendars').css('top', $('li.my_calendars').offset().top+20);
+  $('#calendars').css('top', $('li.my_calendars').offset().top+18);
 
 });
 

@@ -45,8 +45,10 @@ p {
 
 div#user_navigation {
   width: 100%;
-  height: 18px;
-  border-bottom: 1px solid #3366CC;
+  height: 24px;
+  -moz-box-shadow: 0px 2px 3px #3366cc; 
+  -webkit-box-shadow: 0px 2px 3px #3366cc;
+  box-shadow: 0px 2px 3px #3366cc;
   margin-bottom: 22px;
 }
 
@@ -57,26 +59,65 @@ div#user_navigation {
 
 #user_navigation ul li {
   font-size: 14px;
-  margin-right: 5px;
+  margin: 5px;
 }
 
-#user_navigation ul.left li {
+#user_navigation > ul > li > a.active {
+  position: relative;
+  background: #ffffff;
+  -moz-border-radius-topleft: 4px; 
+  -moz-border-radius-topright: 4px; 
+  -webkit-border-radius-topleft: 4px; 
+  -webkit-border-radius-topright: 4px; 
+  border-radius-topleft: 4px;
+  border-radius-topright: 4px;
+  border-top: 1px solid #3366cc;
+  border-left: 1px solid #3366cc;
+  border-right: 1px solid #3366cc;
+  z-index: 90;
+}
+
+#user_navigation ul.left > li {
   float: left;
 }
 
-#user_navigation ul.right li {
+#user_navigation ul.right > li {
   float: right;
 }
 
 #user_navigation ul li a {
+  padding: 3px;
   text-decoration: none;
 }
 
 div#calendars {
+  clear: both;
+  float: none;
   position: absolute;
-  z-index: 100;
+  z-index: 80;
   background: #ffffff;
   border: 1px solid #3366cc;
+  -moz-border-radius-bottomleft: 4px; 
+  -moz-border-radius-bottomright: 4px; 
+  -moz-border-radius-topright: 4px; 
+  -webkit-border-radius-bottomleft: 4px; 
+  -webkit-border-radius-bottomright: 4px; 
+  -webkit-border-radius-topright: 4px; 
+  border-radius-bottomleft: 4px;
+  border-radius-bottomright: 4px;
+  border-radius-topright: 4px;
+  -moz-box-shadow: 3px 3px 4px #333333; 
+  -webkit-box-shadow: 3px 3px 4px #333333;
+  box-shadow: 3px 3px 4px #333333;
+}
+
+div#calendars li a {
+  display: block;
+}
+
+div#calendars li a:hover {
+  background: #3366cc;
+  color: #ffffff;
 }
 
 .loading_indicator {

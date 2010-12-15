@@ -17,32 +17,33 @@
   <% end %>
 </div>
 
-<div id="calendars" style="display: none;">
-  <ul>
-  <% current_user.calendars.each do |calendar| %>
-    <li>
-      <%= link_to calendar.name, edit_calendar_path(calendar) %>
-    </li>
-  <% end %>
-  </ul>
-  <% unless current_user.remote_calendars.empty? %>
-  <hr />
-  <ul>
-  <% current_user.remote_calendars.each do |remote_calendar| %>
-    <li>
-      <%= link_to remote_calendar.name, edit_remote_calendar_path(remote_calendar) %>
-    </li>
-  <% end %>
-  </ul>
-  <% end %>
-  <hr />
-  <%= link_to "Create new calendar", new_calendar_path %> <br />
-  <%= link_to "Add remote calendar", new_remote_calendar_path %>
-</div>
-
 <% content_for :current_actions do %>
 <li class="my_calendars">
   <%= link_to "My Calendars" %>
+  <div id="calendars" style="display: none;">
+    <ul>
+    <% current_user.calendars.each do |calendar| %>
+      <li>
+        <%= link_to calendar.name, edit_calendar_path(calendar) %>
+      </li>
+    <% end %>
+    </ul>
+    <% unless current_user.remote_calendars.empty? %>
+    <hr />
+    <ul>
+    <% current_user.remote_calendars.each do |remote_calendar| %>
+      <li>
+        <%= link_to remote_calendar.name, edit_remote_calendar_path(remote_calendar) %>
+      </li>
+    <% end %>
+    </ul>
+    <% end %>
+    <hr />
+    <ul>
+      <li><%= link_to "Create new calendar", new_calendar_path %></li>
+      <li><%= link_to "Add remote calendar", new_remote_calendar_path %></li>
+  </ul>
+  </div>
 </li>
 <% end %>
 
