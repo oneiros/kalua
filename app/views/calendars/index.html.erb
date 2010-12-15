@@ -6,7 +6,13 @@
     <%= f.hidden_field 'to' %>
     <%= f.hidden_field 'all_day' %>
     <p id='new_event_from'><p>
-    <p>Title: <%= f.text_field 'title' %></p>
+    <p>
+      <%= f.label "title" %> 
+      <%= f.text_field 'title' %>
+    </p>
+    <p>
+      <%= f.label "calendar_id", "Calendar" %> 
+      <%= f.collection_select "calendar_id", current_user.calendars, :id, :name %></p>
     <p><%= f.submit 'Create' %></p>
   <% end %>
 </div>
